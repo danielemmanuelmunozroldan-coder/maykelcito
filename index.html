@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <title>PANEL P4NTA</title>
+  <style>
+    :root { --purple: #a855f7; --violet: #7c3aed; --bg: #050505; --muted: #aaa3b7; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: #fff; background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background: radial-gradient(ellipse at 50% 5%, #43106a55, transparent 45%),
+                  radial-gradient(ellipse at 90% 70%, #5b21b622, transparent 35%);
+    }
+    .nav {
+      width: min(1120px, calc(100% - 36px)); margin: 0 auto; padding: 22px 0;
+      display: flex; justify-content: space-between; align-items: center; gap: 18px;
+      border-bottom: 1px solid #ffffff12;
+    }
+    .brand { font-weight: 900; letter-spacing: 1.8px; font-size: 1.05rem; }
+    .brand span { color: var(--purple); }
+    .navlinks { display: flex; gap: 24px; }
+    .navlinks a { color: #c9c3d0; text-decoration: none; font-size: .88rem; }
+    .navlinks a:hover { color: #fff; }
+    .hero { min-height: 590px; display: grid; place-items: center; text-align: center; padding: 85px 20px 70px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; padding: 8px 13px;
+      border: 1px solid #a855f755; background: #a855f710; border-radius: 5px;
+      color: #d9b8ff; font-size: .75rem; font-weight: 800; letter-spacing: 2px;
+    }
+    .dot { width: 7px; height: 7px; background: #b66cff; border-radius: 50%; box-shadow: 0 0 12px #b66cff; }
+    h1 { margin: 24px 0 15px; font-size: clamp(3rem, 10vw, 6.8rem); line-height: .95; letter-spacing: -.065em; font-weight: 950; }
+    h1 span { color: var(--purple); text-shadow: 0 0 35px #9333ea55; }
+    .subtitle { color: var(--muted); max-width: 570px; margin: 0 auto; font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.7; }
+    .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; padding: 14px 22px;
+      border-radius: 5px; font-weight: 800; text-decoration: none; transition: .2s ease; border: 1px solid transparent;
+    }
+    .btn-primary { background: linear-gradient(110deg, #9333ea, #6d28d9); color: #fff; box-shadow: 0 8px 32px #7c3aed35; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 36px #7c3aed70; }
+    .btn-secondary { border-color: #ffffff26; color: #eee; background: #ffffff06; }
+    .btn-secondary:hover { border-color: #a855f7; }
+    .key-panel { width: min(560px, calc(100% - 36px)); margin: 0 auto 70px; padding: 28px; border: 1px solid #a855f755; background: linear-gradient(145deg, #140d1b, #080808); border-radius: 8px; text-align: center; }
+    .key-panel[hidden], .admin-panel[hidden] { display: none; }
+    .admin-panel { width: min(560px, calc(100% - 36px)); margin: 0 auto 70px; padding: 28px; border: 1px solid #a855f755; background: linear-gradient(145deg, #140d1b, #080808); border-radius: 8px; text-align: center; }
+    .key-panel h2 { margin-top: 0; }
+    .key-panel p { color: var(--muted); line-height: 1.6; }
+    .key-form { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    .key-input { flex: 1 1 220px; min-width: 0; padding: 14px 15px; background: #050505; color: #fff; border: 1px solid #ffffff2b; border-radius: 5px; outline: none; font: inherit; }
+    .key-input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px #a855f71c; }
+    .key-message { min-height: 24px; margin-top: 14px; font-size: .9rem; color: #d8b4fe; }
+    .section { width: min(1060px, calc(100% - 36px)); margin: 0 auto; padding: 35px 0 80px; }
+    .section-head { text-align: center; margin-bottom: 30px; }
+    .section-head small { color: #c084fc; letter-spacing: 3px; font-weight: 800; }
+    h2 { font-size: clamp(1.8rem, 5vw, 2.7rem); margin: 10px 0; letter-spacing: -.04em; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      border: 1px solid #ffffff14; background: linear-gradient(145deg, #151019, #0a0a0c 75%);
+      padding: 25px; border-radius: 8px; min-height: 190px; position: relative; overflow: hidden;
+    }
+    .card::after { content: ""; position: absolute; width: 130px; height: 130px; right: -65px; top: -65px; background: #9333ea18; filter: blur(5px); border-radius: 50%; }
+    .card-icon { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #a855f755; background: #a855f714; border-radius: 6px; color: #d8b4fe; font-size: 1.2rem; }
+    .card h3 { margin: 19px 0 8px; font-size: 1.12rem; letter-spacing: .5px; }
+    .card p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.6; }
+    .ticket { width: min(1060px, calc(100% - 36px)); margin: 0 auto 70px; padding: 38px 24px; text-align: center; border: 1px solid #a855f744; background: linear-gradient(110deg, #170c20, #0b0b0d 70%); border-radius: 8px; }
+    .ticket p { color: var(--muted); margin: 0 auto 22px; max-width: 520px; line-height: 1.6; }
+    footer { border-top: 1px solid #ffffff12; text-align: center; color: #77717f; padding: 24px 15px; font-size: .82rem; }
+    @media (max-width: 700px) {
+      .nav { align-items: flex-start; flex-direction: column; }
+      .navlinks { gap: 16px; flex-wrap: wrap; }
+      .hero { min-height: 510px; padding-top: 65px; }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">P4NTA<span>•</span>PANEL</div>
+    <nav class="navlinks" aria-label="Navegación principal">
+      <a href="#inicio">INICIO</a>
+      <a href="#funciones">FUNCIONES</a>
+      <a href="#soporte">SOPORTE</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> NUEVA EXPERIENCIA P4NTA</div>
+        <h1>PANEL <span>P4NTA</span></h1>
+        <p class="subtitle">Diseño oscuro, estilo potente y una experiencia creada para destacar. Descubre las funciones del panel en un solo lugar.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#soporte">CREAR TICKET ↗</a>
+          <a class="btn btn-secondary" href="#funciones">VER FUNCIONES ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="text-align:center; padding-top:0; padding-bottom:35px;">
+      <button class="btn btn-primary" id="panelLinkButton" type="button">LINK DEL PANEL ↗</button>
+    </section>
+
+    <section class="section" id="funciones">
+      <div class="section-head">
+        <small>CARACTERÍSTICAS</small>
+        <h2>Todo el estilo P4NTA</h2>
+        <p>Una interfaz elegante con detalles en violeta neón.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon">⌁</div>
+          <h3>ESP LINEA</h3>
+          <p>Presentación de la función ESP con una tarjeta clara y fácil de identificar.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">✦</div>
+          <h3>TOP COLORS</h3>
+          <p>Estética con colores destacados y acentos violeta para una apariencia única.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">◈</div>
+          <h3>FAKE LAG</h3>
+          <p>Sección dedicada a esta opción, con el mismo diseño oscuro y moderno.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="key-panel" id="poner-key" hidden>
+      <h2>Activar <span style="color:#a855f7">P4NTA</span></h2>
+      <p>Primero genera tu ID de este navegador y envíaselo al administrador para que prepare tu KEY.</p>
+      <div class="key-form">
+        <button class="btn btn-secondary" id="generateDeviceIdButton" type="button">GENERAR MI ID</button>
+        <button class="btn btn-secondary" id="copyDeviceIdButton" type="button">COPIAR ID</button>
+      </div>
+      <div class="key-message" id="deviceIdMessage" role="status" aria-live="polite">Todavía no has generado un ID.</div>
+      <form class="key-form" id="keyForm">
+        <input class="key-input" id="keyInput" type="text" placeholder="ESCRIBE TU KEY" aria-label="Escribe tu key" autocomplete="off" required>
+        <button class="btn btn-primary" type="submit">PONER KEY</button>
+      </form>
+      <div class="key-message" id="keyMessage" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="admin-panel" id="adminPanel" hidden>
+      <h2>ADMIN <span style="color:#a855f7">P4NTA</span></h2>
+      <p>Genera una KEY usando el ID que te envíe el cliente. El ID se genera en el navegador del cliente.</p>
+      <form class="key-form" id="adminLoginForm">
+        <input class="key-input" id="adminPin" type="password" placeholder="PIN DE ADMIN" aria-label="PIN de administrador" required>
+        <button class="btn btn-primary" type="submit">ENTRAR</button>
+      </form>
+      <div id="keyGenerator" hidden>
+        <form class="key-form" id="generateKeyForm">
+          <input class="key-input" id="deviceId" type="text" placeholder="ID DEL DISPOSITIVO" aria-label="ID del dispositivo" required>
+          <button class="btn btn-primary" type="submit">GENERAR KEY</button>
+        </form>
+        <div class="key-message" id="generatedKey" role="status" aria-live="polite"></div>
+        <button class="btn btn-secondary" id="copyKeyButton" type="button">COPIAR KEY</button>
+      </div>
+      <p class="key-message">Aviso: este ID identifica este navegador, no el hardware del celular. Las keys aún no se validan en un servidor.</p>
+    </section>
+
+    <section class="ticket" id="soporte">
+      <div class="section-head">
+        <small>¿NECESITAS AYUDA?</small>
+        <h2>Solicita tu ticket</h2>
+      </div>
+      <p>Contacta con el equipo de soporte para consultar disponibilidad, precios y detalles del PANEL P4NTA.</p>
+      <a class="btn btn-primary" href="https://discord.gg/mtVEM9VBn" target="_blank" rel="noopener noreferrer">CREAR TICKET EN DISCORD ↗</a>
+    </section>
+  </main>
+
+  <section class="section" style="text-align:center;padding-top:0;padding-bottom:25px;">
+    <button class="btn btn-secondary" id="showAdminButton" type="button">ADMIN · GENERAR KEYS</button>
+  </section>
+  <footer>© 2026 PANEL P4NTA · Diseño oscuro, estilo único.</footer>
+  <script>
+    // El servidor (api.php) valida las KEY y evita que se canjeen más de una vez.
+    // Cambia ADMIN_SECRET en api.php antes de subir la web.
+    let latestGeneratedKey = '';
+    let currentDeviceId = '';
+
+    async function api(action, data = {}) {
+      const response = await fetch('api.php?action=' + encodeURIComponent(action), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) throw new Error(result.message || 'Error de conexión con el servidor.');
+      return result;
+    }
+
+    function getOrCreateDeviceId() {
+      const storageKey = 'p4nta_browser_device_id';
+      let id = '';
+      try {
+        id = localStorage.getItem(storageKey) || '';
+        if (!id) {
+          const randomPart = Array.from(crypto.getRandomValues(new Uint8Array(8)))
+            .map(value => value.toString(16).padStart(2, '0')).join('').toUpperCase();
+          id = 'P4NTA-ID-' + randomPart;
+          localStorage.setItem(storageKey, id);
+        }
+      } catch (error) {
+        const randomPart = Array.from(crypto.getRandomValues(new Uint8Array(8)))
+          .map(value => value.toString(16).padStart(2, '0')).join('').toUpperCase();
+        id = 'P4NTA-ID-' + randomPart;
+      }
+      return id;
+    }
+
+    document.getElementById('generateDeviceIdButton').addEventListener('click', function () {
+      currentDeviceId = getOrCreateDeviceId();
+      document.getElementById('deviceIdMessage').textContent =
+        'TU ID: ' + currentDeviceId + ' · Envíalo al administrador para que genere tu KEY.';
+      document.getElementById('deviceId').value = currentDeviceId;
+    });
+
+    document.getElementById('copyDeviceIdButton').addEventListener('click', async function () {
+      if (!currentDeviceId) {
+        document.getElementById('deviceIdMessage').textContent = 'Primero pulsa GENERAR MI ID.';
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(currentDeviceId);
+        document.getElementById('deviceIdMessage').textContent = 'ID copiado: ' + currentDeviceId;
+      } catch (error) {
+        document.getElementById('deviceIdMessage').textContent = 'Copia manualmente tu ID: ' + currentDeviceId;
+      }
+    });
+
+    document.getElementById('showAdminButton').addEventListener('click', function () {
+      const admin = document.getElementById('adminPanel');
+      admin.hidden = !admin.hidden;
+      if (!admin.hidden) admin.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    document.getElementById('adminLoginForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const out = document.getElementById('generatedKey');
+      out.textContent = 'Verificando acceso...';
+      try {
+        await api('admin_check', { pin: document.getElementById('adminPin').value });
+        document.getElementById('keyGenerator').hidden = false;
+        document.getElementById('adminPin').value = '';
+        out.textContent = 'Acceso de administrador concedido.';
+      } catch (error) {
+        out.textContent = error.message;
+      }
+    });
+
+    document.getElementById('generateKeyForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const device = document.getElementById('deviceId').value.trim();
+      const out = document.getElementById('generatedKey');
+      if (!device) return;
+      out.textContent = 'Generando KEY...';
+      try {
+        const result = await api('generate', {
+          pin: document.getElementById('adminPin').value,
+          device_id: device
+        });
+        latestGeneratedKey = result.key;
+        out.textContent = 'KEY: ' + latestGeneratedKey + ' · Vinculada al ID: ' + device;
+      } catch (error) {
+        out.textContent = error.message + ' Vuelve a entrar como admin y genera la KEY.';
+      }
+    });
+
+    document.getElementById('copyKeyButton').addEventListener('click', async function () {
+      if (!latestGeneratedKey) {
+        document.getElementById('generatedKey').textContent = 'Primero genera una KEY.';
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(latestGeneratedKey);
+        document.getElementById('generatedKey').textContent = 'KEY copiada: ' + latestGeneratedKey;
+      } catch (error) {
+        document.getElementById('generatedKey').textContent = 'Copia manualmente esta KEY: ' + latestGeneratedKey;
+      }
+    });
+
+    document.getElementById('panelLinkButton').addEventListener('click', function () {
+      const keyPanel = document.getElementById('poner-key');
+      keyPanel.hidden = !keyPanel.hidden;
+      if (!keyPanel.hidden) {
+        keyPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        currentDeviceId = getOrCreateDeviceId();
+        document.getElementById('deviceIdMessage').textContent =
+          'TU ID: ' + currentDeviceId + ' · Envíalo al administrador para que genere tu KEY.';
+        document.getElementById('deviceId').value = currentDeviceId;
+        document.getElementById('keyInput').focus({ preventScroll: true });
+      }
+    });
+
+    document.getElementById('keyForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const key = document.getElementById('keyInput').value.trim();
+      const message = document.getElementById('keyMessage');
+      const deviceId = currentDeviceId || getOrCreateDeviceId();
+      if (!key) {
+        message.textContent = 'Escribe una KEY para continuar.';
+        return;
+      }
+      message.textContent = 'Validando KEY...';
+      try {
+        const result = await api('redeem', { key, device_id: deviceId });
+        message.textContent = '✅ KEY válida. Preparando tu descarga...';
+        message.style.color = '#c084fc';
+        const link = document.createElement('a');
+        link.className = 'btn btn-primary';
+        link.href = 'api.php?action=download&token=' + encodeURIComponent(result.download_token);
+        link.textContent = 'DESCARGAR APK P4NTA ↓';
+        link.style.marginTop = '12px';
+        link.style.display = 'inline-flex';
+        link.setAttribute('download', 'PANEL-P4NTA.apk');
+        message.appendChild(document.createElement('br'));
+        message.appendChild(link);
+        document.getElementById('keyInput').value = '';
+      } catch (error) {
+        message.textContent = '❌ ' + error.message;
+        message.style.color = '#fca5a5';
+      }
+    });
+  </script>
+</body>
+</html>

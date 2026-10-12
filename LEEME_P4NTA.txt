@@ -1,0 +1,26 @@
+PANEL P4NTA — instalación del canje de KEY de un solo uso
+
+ARCHIVOS
+- index.html: página web P4NTA con formulario de ID, canje y descarga.
+- api.php: validación real de KEY en servidor, asociada al ID.
+- panel.apk: coloca aquí el APK que tienes permiso para distribuir.
+- data/keys.json: se crea automáticamente; guarda las KEY y su estado.
+
+IMPORTANTE: NO funciona como sistema seguro si abres index.html como archivo local.
+Necesitas subir los archivos a un hosting que ejecute PHP 7.4+ y usar HTTPS.
+
+PASOS
+1. Sube index.html y api.php a la misma carpeta de tu web.
+2. Sube el APK autorizado a esa misma carpeta y cámbiale el nombre a panel.apk.
+3. Abre api.php y cambia ADMIN_SECRET por una contraseña larga y privada. No uses el texto de ejemplo.
+4. Asegura que PHP pueda escribir en la carpeta del sitio para crear data/keys.json. Si tu hosting lo permite, coloca data fuera de la carpeta pública; este ejemplo limita permisos, pero la configuración del hosting también importa.
+5. Abre la web por HTTPS y pulsa LINK DEL PANEL. El cliente pulsa GENERAR MI ID y te envía el ID.
+6. En ADMIN · GENERAR KEYS, entra con el mismo ADMIN_SECRET, pega el ID y pulsa GENERAR KEY. Envía esa KEY al cliente.
+7. El cliente introduce la KEY en su navegador con el mismo ID y pulsa PONER KEY. Si coincide y no se ha usado, obtiene un enlace de descarga temporal. La KEY se marca como canjeada y no se acepta otra vez.
+8. El enlace de descarga también es de un solo uso y caduca a los 15 minutos.
+
+LIMITACIONES IMPORTANTES
+- El ID identifica el navegador/localStorage, NO el hardware del teléfono. Borrar datos del navegador o cambiar de navegador puede generar otro ID; para un bloqueo de hardware real hace falta una app que consulte un servidor con una identidad de instalación.
+- El canje es de una sola vez en el servidor. La descarga se protege con un token temporal de un uso, pero quien ya obtuvo el APK puede copiar y compartir el archivo después.
+- No compartas ADMIN_SECRET. Usa HTTPS. Haz copias de seguridad seguras de data/keys.json.
+- El APK no ha sido modificado por este paquete; se entrega para descarga el archivo que coloques como panel.apk.
