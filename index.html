@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="P4NTA MENU STORE — tienda digital con estilo premium.">
+<title>P4NTA MENU STORE</title>
+<style>
+:root{--bg:#070707;--panel:#111;--panel2:#151515;--line:#282828;--white:#f5f5f5;--muted:#9a9a9a;--accent:#b7ff36;--accent2:#8bd400}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit}
+.wrap{width:min(1120px,92%);margin:auto}.nav{position:sticky;top:0;z-index:10;background:rgba(7,7,7,.88);backdrop-filter:blur(14px);border-bottom:1px solid #202020}.navin{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:1.4px}.logo{width:39px;height:39px;border:1px solid var(--accent);display:grid;place-items:center;color:var(--accent);font-weight:1000;font-size:17px;transform:skew(-5deg);box-shadow:0 0 22px #b7ff3614}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:3px;margin-top:2px}.navlinks{display:flex;align-items:center;gap:26px;color:#c6c6c6;font-size:13px}.navlinks a:hover{color:var(--accent)}.nav-cta,.btn{border:1px solid var(--accent);background:var(--accent);color:#080808;padding:12px 17px;font-weight:850;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}.nav-cta:hover,.btn:hover{background:transparent;color:var(--accent);transform:translateY(-2px)}.hero{padding:88px 0 72px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:450px;height:450px;border-radius:50%;right:-120px;top:-150px;background:#b7ff360a;filter:blur(2px);pointer-events:none}.eyebrow{color:var(--accent);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";width:27px;height:1px;background:var(--accent)}h1{font-size:clamp(42px,7vw,82px);line-height:.98;letter-spacing:-3.5px;margin:22px 0;max-width:800px}h1 span{color:var(--accent)}.hero p{color:#aaa;line-height:1.8;max-width:570px;font-size:16px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.btn.secondary{background:transparent;color:#eee;border-color:#393939}.btn.secondary:hover{border-color:var(--accent);color:var(--accent)}.stats{display:flex;gap:32px;margin-top:44px;flex-wrap:wrap}.stat strong{font-size:21px;display:block}.stat span{font-size:11px;color:var(--muted);letter-spacing:1px}.section{padding:65px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}.kicker{color:var(--accent);font-size:10px;letter-spacing:2.5px;font-weight:900}.section h2{font-size:clamp(28px,4vw,42px);letter-spacing:-1.4px;margin:10px 0 0}.section-head p{max-width:370px;color:var(--muted);font-size:13px;line-height:1.7}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.product{background:linear-gradient(145deg,#151515,#0d0d0d);border:1px solid var(--line);padding:24px;border-radius:8px;position:relative;overflow:hidden;transition:.25s}.product:hover{transform:translateY(-5px);border-color:#687e37}.product-top{display:flex;align-items:center;justify-content:space-between}.product-icon{width:48px;height:48px;border:1px solid #343434;border-radius:7px;display:grid;place-items:center;color:var(--accent);font-size:22px;background:#b7ff3608}.tag{font-size:9px;letter-spacing:1.2px;color:var(--accent);border:1px solid #536a2c;padding:6px 8px;border-radius:3px}.product h3{font-size:20px;margin:22px 0 9px}.product p{color:var(--muted);font-size:13px;line-height:1.7;min-height:44px}.features{list-style:none;padding:15px 0 20px;margin:0;border-top:1px solid #272727}.features li{font-size:12px;color:#c5c5c5;margin:10px 0;display:flex;gap:9px}.features li:before{content:"✓";color:var(--accent);font-weight:900}.product .btn{width:100%;padding:11px;font-size:12px}.notice{margin-top:18px;color:#777;font-size:11px;line-height:1.7}.banner{border:1px solid #303030;border-radius:10px;padding:32px;background:radial-gradient(ellipse at 90% 0%,#b7ff3612,transparent 48%),#101010;display:flex;align-items:center;justify-content:space-between;gap:25px}.banner h2{font-size:clamp(24px,4vw,37px);margin:0 0 10px}.banner p{color:var(--muted);font-size:13px;line-height:1.7;margin:0;max-width:600px}.faq{max-width:800px}.faq details{border-bottom:1px solid #282828;padding:19px 0}.faq summary{cursor:pointer;font-weight:750;list-style:none;display:flex;justify-content:space-between;gap:15px}.faq summary:after{content:"+";color:var(--accent);font-size:20px}.faq details[open] summary:after{content:"−"}.faq details p{color:var(--muted);font-size:13px;line-height:1.8;max-width:700px}.footer{border-top:1px solid #222;padding:26px 0;color:#777;font-size:11px}.footerin{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.footer strong{color:#eee;letter-spacing:1px}.pill{display:inline-block;border:1px solid #2e2e2e;border-radius:20px;padding:7px 10px;color:#999;font-size:10px;margin-bottom:14px}
+@media(max-width:760px){.navlinks{display:none}.hero{padding:65px 0 48px}h1{letter-spacing:-2px}.grid{grid-template-columns:1fr}.section{padding:48px 0}.section-head{align-items:start;flex-direction:column;gap:10px}.product p{min-height:0}.banner{align-items:flex-start;flex-direction:column}.stats{gap:22px}.nav-cta{padding:10px 12px;font-size:12px}}
+
+.bottom-cta{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:30;width:min(560px,calc(100% - 28px));padding:15px 18px;border:1px solid #b7ff36;border-radius:8px;background:linear-gradient(135deg,#b7ff36,#8bd400);color:#080808;text-align:center;font-weight:950;font-size:clamp(11px,2.8vw,14px);letter-spacing:.45px;box-shadow:0 8px 35px #000b,0 0 24px #b7ff3628;transition:transform .2s,filter .2s}
+.bottom-cta:hover{filter:brightness(1.08);transform:translateX(-50%) translateY(-2px)}
+body{padding-bottom:78px}
+
+
+.task-gate{position:fixed;inset:0;z-index:60;background:#000d;backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:18px}
+.task-gate.open{display:flex}
+.gate-card{width:min(520px,100%);max-height:88vh;overflow:auto;background:#101010;border:1px solid #343434;border-radius:12px;padding:24px;box-shadow:0 25px 90px #000}
+.gate-card h2{font-size:26px;margin:8px 0 10px;letter-spacing:-.7px}
+.gate-card p{font-size:13px;line-height:1.7;color:#aaa}
+.gate-tasks{display:grid;gap:10px;margin:18px 0}
+.gate-task{display:flex;align-items:flex-start;gap:12px;padding:13px;border:1px solid #2d2d2d;border-radius:8px;background:#151515}
+.gate-task input{accent-color:#b7ff36;width:18px;height:18px;margin-top:2px}
+.gate-task strong{display:block;font-size:13px}
+.gate-task small{display:block;color:#999;margin-top:5px;line-height:1.5}
+.gate-actions{display:flex;gap:10px;flex-wrap:wrap}
+.gate-actions button{cursor:pointer}
+.gate-status{font-size:12px!important;color:#b7ff36!important;min-height:18px}
+
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap navin">
+  <a class="brand" href="#inicio"><span class="logo">P4</span><span>P4NTA <small>MENU STORE</small></span></a>
+  <nav class="navlinks"><a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#soporte">Soporte</a></nav>
+  <a class="nav-cta" href="#productos">VER TIENDA ↗</a>
+</div></header>
+<main>
+<section class="hero" id="inicio"><div class="wrap">
+  <div class="eyebrow">ESTILO PREMIUM · EXPERIENCIA DIGITAL</div>
+  <h1>SUBE DE NIVEL.<br><span>ELIGE P4NTA.</span></h1>
+  <p>Bienvenido a P4NTA MENU STORE. Explora nuestros productos digitales desde una interfaz rápida, moderna y diseñada en negro con detalles verde neón.</p>
+  <div class="actions"><a class="btn" href="https://discord.gg/mtVEM9VBn" target="_blank" rel="noopener noreferrer">EXPLORAR PRODUCTOS <span>↗</span></a><a class="btn secondary" href="#soporte">CENTRO DE AYUDA</a></div>
+  <div class="stats"><div class="stat"><strong>01.</strong><span>DISEÑO EXCLUSIVO</span></div><div class="stat"><strong>24/7</strong><span>TIENDA ONLINE</span></div><div class="stat"><strong>P4NTA</strong><span>IDENTIDAD PROPIA</span></div></div>
+</div></section>
+<section class="section" id="productos"><div class="wrap">
+  <div class="section-head"><div><div class="kicker">CATÁLOGO P4NTA</div><h2>Productos destacados<span style="color:var(--accent)">.</span></h2></div><p>Elige una categoría y consulta disponibilidad, precio y condiciones antes de comprar.</p></div>
+  <div class="grid">
+    <article class="product"><div class="product-top"><div class="product-icon">✦</div><span class="tag">DESTACADO</span></div><h3>P4NTA MENU</h3><p>Producto digital de la marca P4NTA. Consulta los detalles y la compatibilidad antes de adquirirlo.</p><ul class="features"><li>Información del producto</li><li>Consulta de disponibilidad</li><li>Atención por soporte</li></ul><a class="btn order" href="#soporte" data-product="P4NTA MENU">CONSULTAR PRODUCTO ↗</a></article>
+    <article class="product"><div class="product-top"><div class="product-icon">⌘</div><span class="tag">DIGITAL</span></div><h3>KEY / LICENCIA</h3><p>Consulta las opciones de acceso, activación y vigencia disponibles para tu compra.</p><ul class="features"><li>Detalles de activación</li><li>Condiciones de uso</li><li>Ayuda para comenzar</li></ul><a class="btn order" href="#soporte" data-product="KEY / LICENCIA">CONSULTAR LICENCIA ↗</a></article>
+    <article class="product"><div class="product-top"><div class="product-icon">◈</div><span class="tag">SOPORTE</span></div><h3>ASISTENCIA</h3><p>¿Tienes dudas antes de comprar? Contacta con el equipo para recibir información.</p><ul class="features"><li>Consultas de compra</li><li>Ayuda de instalación</li><li>Preguntas frecuentes</li></ul><a class="btn order" href="#soporte" data-product="ASISTENCIA">PEDIR INFORMACIÓN ↗</a></article>
+  </div><p class="notice">Los nombres son una plantilla inicial. Configura los productos, precios, enlaces de compra y condiciones reales antes de publicar la página.</p>
+</div></section>
+<section class="section" id="soporte"><div class="wrap"><div class="banner"><div><div class="kicker">¿NECESITAS AYUDA?</div><h2>Hablemos, P4NTA.</h2><p>Configura tu enlace de WhatsApp o Discord para que tus clientes puedan consultar precios, métodos de pago y disponibilidad directamente.</p></div><a class="btn" id="contactBtn" href="#contacto">CONFIGURAR CONTACTO ↗</a></div></div></section>
+<section class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">CENTRO DE AYUDA</div><h2>Preguntas frecuentes<span style="color:var(--accent)">.</span></h2></div></div>
+<div class="faq">
+<details><summary>¿Cómo puedo comprar?</summary><p>Selecciona el producto y contacta con la tienda para confirmar precio, disponibilidad y método de pago.</p></details>
+<details><summary>¿Dónde recibo mi producto digital?</summary><p>El método de entrega debe indicarse en las condiciones de compra. Confirma los detalles con el vendedor antes de pagar.</p></details>
+<details><summary>¿Cómo contacto con soporte?</summary><p>Usa el botón de contacto cuando el administrador haya configurado su enlace oficial de WhatsApp o Discord.</p></details>
+</div></div></section>
+</main>
+<footer class="footer"><div class="wrap footerin"><div><strong>P4NTA MENU STORE</strong><div style="margin-top:6px">TIENDA DIGITAL · DISEÑO BLACK PREMIUM</div></div><div>© <span id="year">2026</span> P4NTA. Todos los derechos reservados.</div></div></footer>
+
+
+<button class="bottom-cta" id="openTaskGate" type="button">PANEL P4NTA GRATIS PARA ANDROID · SIN BAN NI BLACKLIST ↗</button>
+
+
+<div class="task-gate" id="taskGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <div class="gate-card">
+    <div class="eyebrow">ACCESO A PANEL P4NTA</div>
+    <h2 id="gateTitle">Completa los pasos</h2>
+    <p>Marca cada paso después de realizarlo. Puedes abrir los enlaces desde aquí; no podemos verificar automáticamente si una tarea externa se completó.</p>
+    <div class="gate-tasks">
+      <label class="gate-task"><input type="checkbox" class="gateCheck"><span><strong>1. Únete al Discord oficial</strong><small>Abre el servidor de la comunidad P4NTA.</small><a href="https://discord.gg/mtVEM9VBn" target="_blank" rel="noopener noreferrer">Abrir Discord ↗</a></span></label>
+      <label class="gate-task"><input type="checkbox" class="gateCheck"><span><strong>2. Revisa las novedades</strong><small>Consulta los anuncios y la información de la comunidad.</small><a href="https://discord.gg/mtVEM9VBn" target="_blank" rel="noopener noreferrer">Ver anuncios en Discord ↗</a></span></label>
+      <label class="gate-task"><input type="checkbox" class="gateCheck"><span><strong>3. Confirma que leíste las condiciones</strong><small>Comprueba compatibilidad, seguridad y requisitos antes de instalar.</small></span></label>
+    </div>
+    <p class="gate-status" id="gateStatus" aria-live="polite">Pasos completados: 0 de 3</p>
+    <div class="gate-actions">
+      <button class="btn" id="unlockDownload" type="button">DESBLOQUEAR LINK ↗</button>
+      <button class="btn secondary" id="closeTaskGate" type="button">CERRAR</button>
+    </div>
+    <p style="font-size:11px">Las casillas funcionan como confirmación manual; no comprueban membresías ni acciones en sitios externos.</p>
+  </div>
+</div>
+
+<script>
+/* CONFIGURA AQUÍ TU CONTACTO. Ejemplo WhatsApp: https://wa.me/593XXXXXXXXX */
+const CONTACT_URL = "https://discord.gg/mtVEM9VBn";
+const contactBtn = document.getElementById("contactBtn");
+if (CONTACT_URL.trim()) {
+  contactBtn.href = CONTACT_URL;
+  contactBtn.target = "_blank";
+  contactBtn.rel = "noopener noreferrer";
+  contactBtn.textContent = "CONTACTAR AHORA ↗";
+} else {
+  contactBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    alert("El administrador debe configurar CONTACT_URL en el archivo index.html con su enlace de WhatsApp o Discord.");
+  });
+}
+document.querySelectorAll(".order").forEach(btn => btn.addEventListener("click", function(e) {
+  if (!CONTACT_URL.trim()) {
+    e.preventDefault();
+    alert("Para activar las consultas, el administrador debe configurar CONTACT_URL en el archivo index.html.");
+  } else {
+    this.href = CONTACT_URL;
+    this.target = "_blank";
+    this.rel = "noopener noreferrer";
+  }
+}));
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const taskGate = document.getElementById("taskGate");
+const openTaskGate = document.getElementById("openTaskGate");
+const closeTaskGate = document.getElementById("closeTaskGate");
+const gateChecks = Array.from(document.querySelectorAll(".gateCheck"));
+const gateStatus = document.getElementById("gateStatus");
+const unlockDownload = document.getElementById("unlockDownload");
+const PANEL_DOWNLOAD_URL = "https://www.mediafire.com/file/jds008yq2s2ehto/%25F0%259F%2591%2591Panel_P4NTA_%25F0%259F%25A5%25B7.apk/file";
+
+function updateGateStatus() {
+  const completed = gateChecks.filter(check => check.checked).length;
+  gateStatus.textContent = `Pasos completados: ${completed} de ${gateChecks.length}`;
+  unlockDownload.disabled = completed !== gateChecks.length;
+  unlockDownload.style.opacity = completed === gateChecks.length ? "1" : ".55";
+}
+openTaskGate.addEventListener("click", () => {
+  taskGate.classList.add("open");
+  updateGateStatus();
+});
+closeTaskGate.addEventListener("click", () => taskGate.classList.remove("open"));
+taskGate.addEventListener("click", event => {
+  if (event.target === taskGate) taskGate.classList.remove("open");
+});
+gateChecks.forEach(check => check.addEventListener("change", updateGateStatus));
+unlockDownload.addEventListener("click", () => {
+  if (gateChecks.some(check => !check.checked)) {
+    gateStatus.textContent = "Completa todos los pasos para continuar.";
+    return;
+  }
+  window.open(PANEL_DOWNLOAD_URL, "_blank", "noopener,noreferrer");
+  taskGate.classList.remove("open");
+});
+updateGateStatus();
+
+</script>
+</body>
+</html>
