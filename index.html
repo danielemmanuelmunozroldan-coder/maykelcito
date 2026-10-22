@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>LOL iOS — 3105 Installer</title>
+<style>
+*{box-sizing:border-box}
+:root{color-scheme:dark}
+html,body{margin:0;min-height:100%;background:#000;color:#f7f7f7;font-family:Arial,Helvetica,sans-serif}
+body{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  overflow-x:hidden;position:relative;padding:28px 16px;
+  background:
+    radial-gradient(ellipse at 50% 35%,#202020 0%,#080808 43%,#000 78%);
+}
+.rain{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.drop{
+  position:absolute;top:-90px;width:2px;height:clamp(35px,7vh,75px);
+  background:linear-gradient(transparent,rgba(255,255,255,.8),transparent);
+  opacity:0;filter:drop-shadow(0 0 4px #fff);
+  animation:fall linear infinite;
+}
+@keyframes fall{0%{transform:translateY(-10vh);opacity:0}10%{opacity:.65}85%{opacity:.35}100%{transform:translateY(115vh);opacity:0}}
+.card{
+  position:relative;z-index:1;width:min(100%,560px);padding:clamp(28px,6vw,58px) clamp(20px,5vw,42px);
+  text-align:center;border:1px solid #454545;border-radius:30px;
+  background:linear-gradient(145deg,rgba(27,27,27,.94),rgba(2,2,2,.97) 58%);
+  box-shadow:0 0 55px #ffffff12,inset 0 0 35px #ffffff05;
+  overflow:hidden;
+}
+.card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(120deg,transparent 15%,#ffffff08 48%,transparent 70%)}
+.logo{
+  position:relative;font-size:clamp(94px,22vw,150px);line-height:.95;font-weight:1000;
+  letter-spacing:-.08em;color:#f5f5f5;
+  text-shadow:0 3px 0 #777,0 7px 22px #fff4;
+}
+.crown{font-size:clamp(35px,8vw,52px);margin-bottom:5px;color:#fff;text-shadow:0 0 20px #fff7}
+.sub{font-size:clamp(17px,4vw,24px);letter-spacing:.65em;padding-left:.65em;color:#aaa;margin:15px 0 35px}
+.line{height:1px;width:75%;margin:0 auto 28px;background:linear-gradient(90deg,transparent,#aaa,transparent)}
+h1{font-size:clamp(21px,5vw,29px);letter-spacing:.09em;margin:0 0 12px}
+p{font-size:14px;line-height:1.7;color:#aaa;margin:0 auto;max-width:370px}
+.features{display:flex;justify-content:center;gap:clamp(12px,4vw,30px);margin:30px 0 34px}
+.feature{flex:1;font-size:10px;letter-spacing:.16em;color:#aaa;line-height:1.7}
+.feature strong{display:block;color:#eee;font-size:20px;margin-bottom:5px}
+.btn{
+  position:relative;display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;min-height:76px;padding:18px 14px;border:1px solid #f5f5f5;border-radius:18px;
+  color:#050505;background:linear-gradient(110deg,#fff,#bdbdbd 55%,#f8f8f8);
+  box-shadow:0 0 28px #ffffff25,inset 0 1px #fff;
+  font-size:clamp(16px,4.5vw,22px);font-weight:900;letter-spacing:.035em;text-decoration:none;
+  transition:transform .18s,box-shadow .18s;
+}
+.btn:active{transform:scale(.97);box-shadow:0 0 40px #fff5}
+.btn.secondary{
+  margin-top:14px;background:linear-gradient(110deg,#171717,#050505);
+  color:#f4f4f4;border-color:#555;box-shadow:0 0 20px #ffffff0a,inset 0 1px #ffffff12;
+  font-size:clamp(13px,3.7vw,18px);
+}
+.btn.secondary:active{box-shadow:0 0 32px #ffffff20}
+.download{font-size:27px}
+.note{font-size:10px;letter-spacing:.16em;margin-top:20px;color:#666}
+footer{font-size:10px;letter-spacing:.38em;color:#555;margin-top:30px}
+@media(max-width:360px){.features{gap:8px}.feature{font-size:9px}.btn{min-height:68px}}
+@media(prefers-reduced-motion:reduce){.drop{display:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="rain" id="rain" aria-hidden="true"></div>
+<main class="card">
+  <div class="crown">♛</div>
+  <div class="logo">LOL</div>
+  <div class="sub">iOS</div>
+  <div class="line"></div>
+  <h1>3105 LOL INSTALLER</h1>
+  <p>Tu descarga está a un toque. Pulsa el botón para abrir MediaFire y obtener el archivo IPA.</p>
+  <div class="features">
+    <div class="feature"><strong>◆</strong>DISEÑO<br>PREMIUM</div>
+    <div class="feature"><strong>◈</strong>ESTILO<br>BLACK</div>
+    <div class="feature"><strong>↗</strong>DESCARGA<br>IPA</div>
+  </div>
+  <a class="btn" href="https://www.mediafire.com/file/vtiw8qfqeh4v1y4/LOL.ipa/file" target="_blank" rel="noopener noreferrer">
+    <span class="download">⇩</span> INSTALAR 3105 LOL
+  </a>
+  <a class="btn secondary" href="https://www.mediafire.com/file/u5pe7a5ozr5g9zn/PechoDisimulado.3105/file" target="_blank" rel="noopener noreferrer">
+    <span class="download">⇩</span> AIMBOT PECHO SIN BAN NI BLACK LOL
+  </a>
+  <a class="btn secondary" href="https://www.mediafire.com/file/tmt8hi25hvfno0w/Reset+Guest.3105/file" target="_blank" rel="noopener noreferrer">
+    <span class="download">↻</span> RESET CUENTA INVITADO
+  </a>
+  <div class="note">PULSA UN BOTÓN PARA CONTINUAR A MEDIAFIRE</div>
+  <footer>LOL iOS • INSTALLER</footer>
+</main>
+<script>
+const rain=document.getElementById('rain');
+for(let i=0;i<48;i++){
+  const d=document.createElement('span');
+  d.className='drop';
+  d.style.left=(Math.random()*100)+'%';
+  d.style.animationDuration=(1.8+Math.random()*3.8)+'s';
+  d.style.animationDelay=(-Math.random()*6)+'s';
+  d.style.height=(24+Math.random()*65)+'px';
+  d.style.opacity=(.2+Math.random()*.55).toFixed(2);
+  rain.appendChild(d);
+}
+</script>
+</body>
+</html>
